@@ -115,7 +115,6 @@ body {
   font-family: 'Caveat', cursive;
   font-size: 4rem;
   background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #c77dff 100%);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.4));
   margin-bottom: 5px;
