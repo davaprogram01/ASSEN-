@@ -3,30 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Polaroid Галерея</title>
+  <title>Наша Историческая Галерея ❤️</title>
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/style.css">
+  <!-- Подключаем красивый шрифт для подписей -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div class="gallery">
+  <!-- Анимированный фон со светящимися частицами -->
+  <div class="bg-overlay"></div>
+  <div class="hearts-container">
+    <span class="heart" style="--i:11;">❤️</span>
+    <span class="heart" style="--i:15;">✨</span>
+    <span class="heart" style="--i:24;">💖</span>
+    <span class="heart" style="--i:18;">✨</span>
+    <span class="heart" style="--i:21;">❤️</span>
+    <span class="heart" style="--i:13;">💕</span>
+    <span class="heart" style="--i:26;">✨</span>
+    <span class="heart" style="--i:19;">💖</span>
+  </div>
+
+  <header class="main-header">
+    <h1>Особенные моменты</h1>
+    <p>Нажми на фото, чтобы рассмотреть подробнее ✨</p>
+  </header>
+
+  <main class="gallery">
     <div class="polaroid" style="--angle: -5deg;">
-      <img src="./img/WhatsApp Image 2026-10-27 at 14.20.49.jpeg" alt="Photo 1">
-      <div class="caption">Момент #1</div>
+      <div class="tape"></div>
+      <div class="img-box">
+        <img src="./img/WhatsApp Image 2026-10-27 at 14.20.49.jpeg" alt="Photo 1">
+      </div>
+      <div class="caption">Момент #1 ❤️</div>
     </div>
+
     <div class="polaroid" style="--angle: 3deg;">
-      <img src="./img/WhatsApp Image 2026-10-27 at 14.20.49 (1).jpeg" alt="Photo 2">
-      <div class="caption">Момент #2</div>
+      <div class="tape"></div>
+      <div class="img-box">
+        <img src="./img/WhatsApp Image 2026-10-27 at 14.20.49 (1).jpeg" alt="Photo 2">
+      </div>
+      <div class="caption">Момент #2 ✨</div>
     </div>
+
     <div class="polaroid" style="--angle: -7deg;">
-      <img src="/./img/WhatsApp Image 2026-10-27 at 14.20.47.jpeg" alt="Photo 3">
-      <div class="caption">Момент #3</div>
+      <div class="tape"></div>
+      <div class="img-box">
+        <!-- Исправлена ошибка в пути (убран лишний слэш /./) -->
+        <img src="./img/WhatsApp Image 2026-10-27 at 14.20.47.jpeg" alt="Photo 3">
+      </div>
+      <div class="caption">Момент #3 💖</div>
     </div>
+
     <div class="polaroid" style="--angle: 4deg;">
-      <img src="./img/WhatsApp Image 2026-10-27 at 14.20.47 (1).jpeg" alt="Photo 4">
-      <div class="caption">Момент #4</div>
+      <div class="tape"></div>
+      <div class="img-box">
+        <img src="./img/WhatsApp Image 2026-10-27 at 14.20.47 (1).jpeg" alt="Photo 4">
+      </div>
+      <div class="caption">Момент #4 💕</div>
+    </div>
+  </main>
+
+  <!-- Модальное окно для полноэкранного просмотра фото -->
+  <div class="modal" id="modal">
+    <span class="modal-close" id="modalClose">&times;</span>
+    <div class="modal-content">
+      <img id="modalImg" src="" alt="Enlarged photo">
+      <div class="modal-caption" id="modalCaption"></div>
     </div>
   </div>
 
+  <script>
+    // Простой интерактив для открытия фото во весь экран
+    const polaroids = document.querySelectorAll('.polaroid');
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modalImg');
+    const modalCaption = document.getElementById('modalCaption');
+    const modalClose = document.getElementById('modalClose');
+
+    polaroids.forEach(card => {
+      card.addEventListener('click', () => {
+        const img = card.querySelector('img');
+        const caption = card.querySelector('.caption');
+        modalImg.src = img.src;
+        modalCaption.textContent = caption.textContent;
+        modal.classList.add('active');
+      });
+    });
+
+    modalClose.addEventListener('click', () => modal.classList.remove('active'));
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.remove('active');
+    });
+  </script>
 </body>
 </html>
