@@ -1,102 +1,29 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBERPUNK — Portal</title>
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Галерея</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-    <div class="scene">
+  <div class="header">
+    <h1>Моя Коллекция</h1>
+    <p>3D Презентация фотографий</p>
+  </div>
 
-        <header class="header">
-            <a href="#" class="logo">CYBER<span>VOID</span></a>
-            <div class="status">
-                <span class="status-dot"></span>
-                SYSTEM ONLINE
-            </div>
-            <div class="version">SYSTEM 2077 // 01</div>
-        </header>
-
-        <main class="main">
-
-            <div class="intro">
-                <p class="eyebrow">DIMENSION 01 — UNKNOWN</p>
-                <h1>ENTER THE<br><span>UNKNOWN.</span></h1>
-                <p class="description">
-                    Reality is only the beginning.
-                    Welcome to another dimension.
-                </p>
-                <a href="#portal" class="button">
-                    <span>INITIALIZE</span>
-                    <span class="button-arrow">↗</span>
-                </a>
-            </div>
-
-            <section class="portal-area" id="portal">
-
-                <div class="grid-floor"></div>
-
-                <div class="tunnel">
-
-                    <div class="tunnel-ring ring-1"></div>
-                    <div class="tunnel-ring ring-2"></div>
-                    <div class="tunnel-ring ring-3"></div>
-                    <div class="tunnel-ring ring-4"></div>
-                    <div class="tunnel-ring ring-5"></div>
-                    <div class="tunnel-ring ring-6"></div>
-                    <div class="tunnel-ring ring-7"></div>
-                    <div class="tunnel-ring ring-8"></div>
-
-                    <div class="portal-core">
-                        <div class="core-layer layer-1"></div>
-                        <div class="core-layer layer-2"></div>
-                        <div class="core-layer layer-3"></div>
-                        <div class="core-center"></div>
-                    </div>
-
-                    <div class="orbit orbit-1"></div>
-                    <div class="orbit orbit-2"></div>
-
-                    <div class="spark spark-1"></div>
-                    <div class="spark spark-2"></div>
-                    <div class="spark spark-3"></div>
-                    <div class="spark spark-4"></div>
-                    <div class="spark spark-5"></div>
-                    <div class="spark spark-6"></div>
-
-                </div>
-
-                <div class="scanline"></div>
-
-            </section>
-
-            <aside class="coordinates">
-                <p>PORTAL STATUS</p>
-                <h2>ACTIVE</h2>
-                <div class="equalizer">
-                    <i></i><i></i><i></i><i></i>
-                    <i></i><i></i><i></i><i></i>
-                    <i></i><i></i><i></i><i></i>
-                </div>
-                <p>ENERGY LEVEL <span>98.7%</span></p>
-                <div class="meter"><span></span></div>
-                <p>COORDINATES</p>
-                <small>47°36' / 122°19'</small>
-            </aside>
-
-        </main>
-
-        <footer class="footer">
-            <span>CYBERVOID®</span>
-            <span class="footer-center">BEYOND THE LIMITS OF REALITY</span>
-            <span>EST. 2077</span>
-        </footer>
-
+  <div class="carousel-container">
+    <div class="carousel">
+      <div class="card" style="--i:1;"><img src="photo1.jpg" alt="Photo 1"></div>
+      <div class="card" style="--i:2;"><img src="photo2.jpg" alt="Photo 2"></div>
+      <div class="card" style="--i:3;"><img src="photo3.jpg" alt="Photo 3"></div>
+      <div class="card" style="--i:4;"><img src="photo4.jpg" alt="Photo 4"></div>
+      <div class="card" style="--i:5;"><img src="photo5.jpg" alt="Photo 5"></div>
+      <div class="card" style="--i:6;"><img src="photo6.jpg" alt="Photo 6"></div>
     </div>
+  </div>
 
 </body>
 </html>
