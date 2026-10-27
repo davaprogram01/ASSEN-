@@ -3,99 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Наша Историческая Галерея ❤️</title>
+  <title>Для Самой Особенной ✨</title>
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/style.css">
-  <!-- Подключаем красивый шрифт для подписей -->
+  <!-- Подключаем красивые шрифты -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Анимированный фон со светящимися частицами -->
-  <div class="bg-overlay"></div>
-  <div class="hearts-container">
-    <span class="heart" style="--i:11;">❤️</span>
-    <span class="heart" style="--i:15;">✨</span>
-    <span class="heart" style="--i:24;">💖</span>
-    <span class="heart" style="--i:18;">✨</span>
-    <span class="heart" style="--i:21;">❤️</span>
-    <span class="heart" style="--i:13;">💕</span>
-    <span class="heart" style="--i:26;">✨</span>
-    <span class="heart" style="--i:19;">💖</span>
+  <!-- Магический анимированный фон с частицами -->
+  <div class="magic-bg">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
   </div>
 
-  <header class="main-header">
-    <h1>Особенные моменты</h1>
-    <p>Нажми на фото, чтобы рассмотреть подробнее ✨</p>
+  <div class="particles">
+    <span>✨</span><span>💖</span><span>⭐</span><span>✨</span>
+    <span>💫</span><span>❤️</span><span>✨</span><span>🌟</span>
+  </div>
+
+  <header class="header">
+    <h1>Коллекция лучших моментов</h1>
+    <p>Наведи курсор или нажми на любую карточку ✨</p>
   </header>
 
-  <main class="gallery">
-    <div class="polaroid" style="--angle: -5deg;">
+  <main class="gallery-container">
+    <!-- Карточка 1 -->
+    <div class="polaroid" style="--rot: -4deg;">
       <div class="tape"></div>
-      <div class="img-box">
-        <img src="./img/WhatsApp Image 2026-10-27 at 14.20.49.jpeg" alt="Photo 1">
+      <div class="photo-wrapper">
+        <img src="./img/WhatsApp Image 2026-10-27 at 14.20.49.jpeg" alt="Memory 1">
       </div>
-      <div class="caption">Момент #1 ❤️</div>
+      <div class="caption">Самый яркий день 💫</div>
     </div>
 
-    <div class="polaroid" style="--angle: 3deg;">
+    <!-- Карточка 2 -->
+    <div class="polaroid" style="--rot: 3deg;">
       <div class="tape"></div>
-      <div class="img-box">
-        <img src="./img/WhatsApp Image 2026-10-27 at 14.20.49 (1).jpeg" alt="Photo 2">
+      <div class="photo-wrapper">
+        <img src="./img/WhatsApp Image 2026-10-27 at 14.20.49 (1).jpeg" alt="Memory 2">
       </div>
-      <div class="caption">Момент #2 ✨</div>
+      <div class="caption">Улыбка, которая вдохновляет ❤️</div>
     </div>
 
-    <div class="polaroid" style="--angle: -7deg;">
+    <!-- Карточка 3 -->
+    <div class="polaroid" style="--rot: -6deg;">
       <div class="tape"></div>
-      <div class="img-box">
-        <!-- Исправлена ошибка в пути (убран лишний слэш /./) -->
-        <img src="./img/WhatsApp Image 2026-10-27 at 14.20.47.jpeg" alt="Photo 3">
+      <div class="photo-wrapper">
+        <img src="./img/WhatsApp Image 2026-10-27 at 14.20.47.jpeg" alt="Memory 3">
       </div>
-      <div class="caption">Момент #3 💖</div>
+      <div class="caption">Невероятный вайб ✨</div>
     </div>
 
-    <div class="polaroid" style="--angle: 4deg;">
+    <!-- Карточка 4 -->
+    <div class="polaroid" style="--rot: 5deg;">
       <div class="tape"></div>
-      <div class="img-box">
-        <img src="./img/WhatsApp Image 2026-10-27 at 14.20.47 (1).jpeg" alt="Photo 4">
+      <div class="photo-wrapper">
+        <img src="./img/WhatsApp Image 2026-10-27 at 14.20.47 (1).jpeg" alt="Memory 4">
       </div>
-      <div class="caption">Момент #4 💕</div>
+      <div class="caption">Те самые моменты 💕</div>
     </div>
   </main>
 
-  <!-- Модальное окно для полноэкранного просмотра фото -->
-  <div class="modal" id="modal">
-    <span class="modal-close" id="modalClose">&times;</span>
-    <div class="modal-content">
-      <img id="modalImg" src="" alt="Enlarged photo">
-      <div class="modal-caption" id="modalCaption"></div>
+  <!-- Модальное окно (полноэкранный просмотр) -->
+  <div class="modal" id="imageModal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-box">
+      <span class="close-btn">&times;</span>
+      <img id="modalImage" src="" alt="Zoomed">
+      <div id="modalCaption" class="modal-caption"></div>
     </div>
   </div>
 
   <script>
-    // Простой интерактив для открытия фото во весь экран
+    // Плавный интерактив для модального окна
     const polaroids = document.querySelectorAll('.polaroid');
-    const modal = document.getElementById('modal');
-    const modalImg = document.getElementById('modalImg');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
     const modalCaption = document.getElementById('modalCaption');
-    const modalClose = document.getElementById('modalClose');
+    const closeBtn = document.querySelector('.close-btn');
 
     polaroids.forEach(card => {
       card.addEventListener('click', () => {
         const img = card.querySelector('img');
-        const caption = card.querySelector('.caption');
+        const caption = card.querySelector('.caption').textContent;
         modalImg.src = img.src;
-        modalCaption.textContent = caption.textContent;
+        modalCaption.textContent = caption;
         modal.classList.add('active');
       });
     });
 
-    modalClose.addEventListener('click', () => modal.classList.remove('active'));
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) modal.classList.remove('active');
+    function closeModal() {
+      modal.classList.remove('active');
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.querySelector('.modal-backdrop').addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
     });
   </script>
 </body>
