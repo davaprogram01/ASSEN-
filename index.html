@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -141,3 +142,115 @@
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Для Самой Особенной ✨</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- Подключаем красивые шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Магический анимированный фон с частицами -->
+  <div class="magic-bg">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <div class="particles">
+    <span>✨</span><span>💖</span><span>⭐</span><span>✨</span>
+    <span>💫</span><span>❤️</span><span>✨</span><span>🌟</span>
+  </div>
+
+  <header class="header">
+    <h1>Коллекция лучших моментов</h1>
+    <p>Наведи курсор или нажми на любую карточку ✨</p>
+  </header>
+
+  <main class="gallery-container">
+    <!-- Карточка 1 -->
+    <div class="polaroid" style="--rot: -4deg;">
+      <div class="tape"></div>
+      <div class="photo-wrapper">
+        <img src="./img/WhatsApp Image 2026-10-27 at 14.20.49.jpeg" alt="Memory 1">
+      </div>
+      <div class="caption">Самый яркий день 💫</div>
+    </div>
+
+    <!-- Карточка 2 -->
+    <div class="polaroid" style="--rot: 3deg;">
+      <div class="tape"></div>
+      <div class="photo-wrapper">
+        <img src="./img/WhatsApp Image 2026-10-27 at 14.20.49 (1).jpeg" alt="Memory 2">
+      </div>
+      <div class="caption">Улыбка, которая вдохновляет ❤️</div>
+    </div>
+
+    <!-- Карточка 3 -->
+    <div class="polaroid" style="--rot: -6deg;">
+      <div class="tape"></div>
+      <div class="photo-wrapper">
+        <img src="./img/WhatsApp Image 2026-10-27 at 14.20.47.jpeg" alt="Memory 3">
+      </div>
+      <div class="caption">Невероятный вайб ✨</div>
+    </div>
+
+    <!-- Карточка 4 -->
+    <div class="polaroid" style="--rot: 5deg;">
+      <div class="tape"></div>
+      <div class="photo-wrapper">
+        <img src="./img/WhatsApp Image 2026-10-27 at 14.20.47 (1).jpeg" alt="Memory 4">
+      </div>
+      <div class="caption">Те самые моменты 💕</div>
+    </div>
+  </main>
+
+  <!-- Модальное окно (полноэкранный просмотр) -->
+  <div class="modal" id="imageModal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-box">
+      <span class="close-btn">&times;</span>
+      <img id="modalImage" src="" alt="Zoomed">
+      <div id="modalCaption" class="modal-caption"></div>
+    </div>
+  </div>
+
+  <script>
+    // Плавный интерактив для модального окна
+    const polaroids = document.querySelectorAll('.polaroid');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const modalCaption = document.getElementById('modalCaption');
+    const closeBtn = document.querySelector('.close-btn');
+
+    polaroids.forEach(card => {
+      card.addEventListener('click', () => {
+        const img = card.querySelector('img');
+        const caption = card.querySelector('.caption').textContent;
+        modalImg.src = img.src;
+        modalCaption.textContent = caption;
+        modal.classList.add('active');
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove('active');
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.querySelector('.modal-backdrop').addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>
+>>>>>>> fa13091ff614d6936c3637994252590b48f2ca31
