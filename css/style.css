@@ -1,0 +1,756 @@
+
+:root {
+    --bg: #060711;
+    --purple: #a855f7;
+    --blue: #58d7ff;
+    --white: #f4f3ff;
+    --muted: #9293ad;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--white);
+    background: var(--bg);
+}
+
+.universe {
+    overflow: hidden;
+    background: var(--bg);
+}
+
+/* HEADER */
+
+.header {
+    height: 82px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ffffff12;
+    position: relative;
+    z-index: 20;
+    background: #060711dd;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: var(--purple);
+}
+
+.navigation {
+    display: flex;
+    gap: 38px;
+}
+
+.navigation a,
+.connect {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #c1c1d5;
+    transition: color 0.3s;
+}
+
+.navigation a:hover,
+.connect:hover {
+    color: var(--blue);
+}
+
+.connect {
+    border: 1px solid #a855f766;
+    padding: 13px 17px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 690px;
+    height: calc(100vh - 82px);
+    max-height: 950px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 73% 50%, #25144b 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 70%, #0c2b4a 0%, transparent 45%),
+        #060711;
+}
+
+/* STARS */
+
+.stars {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(2px 2px at 10% 20%, white 50%, transparent),
+        radial-gradient(1px 1px at 30% 80%, white 50%, transparent),
+        radial-gradient(2px 2px at 60% 15%, white 50%, transparent),
+        radial-gradient(1px 1px at 80% 35%, white 50%, transparent),
+        radial-gradient(2px 2px at 90% 70%, white 50%, transparent),
+        radial-gradient(1px 1px at 45% 40%, white 50%, transparent),
+        radial-gradient(2px 2px at 20% 60%, white 50%, transparent),
+        radial-gradient(1px 1px at 70% 85%, white 50%, transparent);
+    background-size: 300px 260px;
+    animation: stars-move 30s linear infinite;
+}
+
+.stars::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 15% 35%, #a855f7 50%, transparent),
+        radial-gradient(2px 2px at 50% 70%, #58d7ff 50%, transparent),
+        radial-gradient(1px 1px at 85% 20%, white 50%, transparent);
+    background-size: 190px 210px;
+    animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+/* MAIN TEXT */
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    margin-left: 10%;
+    width: 540px;
+    animation: reveal 1s ease-out both;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--blue);
+    margin-bottom: 28px;
+}
+
+.status span {
+    width: 7px;
+    height: 7px;
+    background: var(--blue);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--blue);
+    animation: twinkle 1s infinite alternate;
+}
+
+.hero h1 {
+    font-size: clamp(52px, 6.5vw, 88px);
+    line-height: 0.98;
+    letter-spacing: -4px;
+    font-weight: 900;
+}
+
+.hero h1 span {
+    background: linear-gradient(
+        90deg,
+        #a855f7,
+        #58d7ff,
+        #a855f7
+    );
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: gradient-text 5s linear infinite;
+}
+
+.hero-content > p {
+    max-width: 360px;
+    margin-top: 25px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* BUTTON */
+
+.button {
+    display: flex;
+    width: 210px;
+    height: 52px;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 32px;
+    padding: 0 20px;
+    border: 1px solid var(--purple);
+    border-radius: 3px;
+    color: white;
+    font-size: 10px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.button span {
+    font-size: 20px;
+    color: var(--blue);
+    transition: transform 0.3s;
+}
+
+.button:hover {
+    background: #a855f722;
+    box-shadow: 0 0 30px #a855f733;
+    border-color: var(--blue);
+}
+
+.button:hover span {
+    transform: translate(4px, -4px);
+}
+
+/* LARGE PLANET */
+
+.planet-big {
+    position: absolute;
+    width: clamp(260px, 34vw, 440px);
+    aspect-ratio: 1;
+    right: 13%;
+    top: 15%;
+    border-radius: 50%;
+    background:
+        radial-gradient(ellipse at 30% 25%, #b5e9ff 0%, transparent 12%),
+        radial-gradient(ellipse at 35% 35%, #4d72d6 0%, transparent 25%),
+        radial-gradient(ellipse at 70% 65%, #ab56f4 0%, transparent 30%),
+        radial-gradient(circle at 35% 30%, #567cda, #28215e 45%, #100c29 75%);
+    box-shadow:
+        inset -35px -15px 70px #02030e,
+        inset 15px 10px 35px #9a8dff44,
+        0 0 70px #7c3aed33;
+    animation: planet-float 7s ease-in-out infinite;
+}
+
+.planet-surface {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    opacity: 0.45;
+    background:
+        repeating-linear-gradient(
+            165deg,
+            transparent 0px,
+            transparent 23px,
+            #c4b5fd22 25px,
+            transparent 33px
+        );
+    mask-image: linear-gradient(90deg, black, transparent 90%);
+    -webkit-mask-image: linear-gradient(90deg, black, transparent 90%);
+}
+
+.planet-ring {
+    position: absolute;
+    width: 150%;
+    height: 35%;
+    left: -25%;
+    top: 39%;
+    border: 2px solid #a8b6ff88;
+    border-radius: 50%;
+    transform: rotate(-23deg);
+    box-shadow: 0 0 18px #8b5cf633;
+}
+
+.planet-ring::after {
+    content: "";
+    position: absolute;
+    inset: 7px 0;
+    border-top: 1px solid #58d7ff88;
+    border-bottom: 1px solid #a855f766;
+    border-radius: 50%;
+}
+
+/* SMALL PLANETS */
+
+.planet-small {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    right: 10%;
+    top: 15%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ffd2a6, #d65d84 50%, #261137);
+    box-shadow: 0 0 35px #ff6b9d44;
+    animation: planet-float 5s ease-in-out infinite reverse;
+}
+
+.planet-tiny {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    right: 45%;
+    bottom: 18%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, white, #58d7ff 35%, #29358c);
+    box-shadow: 0 0 25px #58d7ff88;
+}
+
+/* ORBITS */
+
+.orbit {
+    position: absolute;
+    z-index: 2;
+    width: 560px;
+    height: 190px;
+    right: 7%;
+    top: 38%;
+    border: 1px solid #a855f744;
+    border-radius: 50%;
+    transform: rotate(-30deg);
+}
+
+.orbit-two {
+    width: 610px;
+    height: 250px;
+    right: 4%;
+    top: 34%;
+    border-color: #58d7ff33;
+    transform: rotate(40deg);
+}
+
+.satellite {
+    position: absolute;
+    top: 12%;
+    left: 12%;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--blue);
+    box-shadow: 0 0 15px var(--blue), 0 0 30px var(--blue);
+    animation: satellite-pulse 2s infinite alternate;
+}
+
+.satellite-two {
+    top: auto;
+    left: auto;
+    right: 14%;
+    bottom: 12%;
+    width: 8px;
+    height: 8px;
+    background: var(--purple);
+    box-shadow: 0 0 15px var(--purple);
+}
+
+/* MISSION INFO */
+
+.coordinates {
+    position: absolute;
+    z-index: 5;
+    left: 7%;
+    bottom: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    color: #74748f;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.scroll {
+    position: absolute;
+    right: 5%;
+    bottom: 35px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #a6a4c0;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.scroll-line {
+    height: 35px;
+    width: 1px;
+    background: linear-gradient(transparent, var(--blue));
+    animation: scroll-line 2s infinite;
+}
+
+/* DISCOVER SECTION */
+
+.discover {
+    padding: 110px 8%;
+    background:
+        radial-gradient(ellipse at 50% 0%, #17152f, transparent 60%),
+        #080914;
+    border-top: 1px solid #ffffff12;
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 45px;
+}
+
+.section-label {
+    color: var(--blue);
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    font-size: clamp(28px, 4vw, 46px);
+    letter-spacing: -2px;
+}
+
+.section-heading h2 span {
+    color: var(--purple);
+}
+
+.section-description {
+    max-width: 230px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* PLANET CARDS */
+
+.planet-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.card {
+    min-height: 330px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ffffff16;
+    background: #101122;
+    transition: transform 0.4s, border-color 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #a855f788;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 35%, #8b5cf722, transparent 65%);
+}
+
+.card-planet {
+    position: absolute;
+    width: 145px;
+    height: 145px;
+    left: 50%;
+    top: 35px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    transition: transform 0.5s;
+}
+
+.card:hover .card-planet {
+    transform: translateX(-50%) scale(1.12) rotate(8deg);
+}
+
+.mars {
+    background:
+        radial-gradient(circle at 30% 25%, #ffc08c, transparent 20%),
+        radial-gradient(circle at 70% 65%, #742e48, transparent 30%),
+        #bd563e;
+    box-shadow: inset -25px -15px 35px #16091f, 0 0 35px #ff684422;
+}
+
+.neptune {
+    background:
+        radial-gradient(circle at 30% 25%, #b6f2ff, transparent 15%),
+        radial-gradient(circle at 65% 65%, #1934a4, transparent 45%),
+        #348bdb;
+    box-shadow: inset -25px -15px 35px #080b29, 0 0 35px #58d7ff22;
+}
+
+.saturn {
+    background:
+        radial-gradient(circle at 35% 30%, #fff0b5, transparent 15%),
+        radial-gradient(circle at 70% 70%, #a15d39, transparent 35%),
+        #d6a66b;
+    box-shadow: inset -25px -15px 35px #251328, 0 0 35px #f5c87922;
+}
+
+.saturn::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 55px;
+    left: -28px;
+    top: 45px;
+    border: 8px solid #eacb9a99;
+    border-radius: 50%;
+    transform: rotate(-20deg);
+}
+
+.card-info {
+    position: absolute;
+    left: 25px;
+    right: 25px;
+    bottom: 25px;
+    z-index: 2;
+}
+
+.card-info > span {
+    color: var(--blue);
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.card-info h3 {
+    font-size: 25px;
+    margin-top: 9px;
+    letter-spacing: 2px;
+}
+
+.card-info p {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.card-info a {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: white;
+    transition: color 0.3s;
+}
+
+.card-info a:hover {
+    color: var(--blue);
+}
+
+/* FOOTER */
+
+.footer {
+    min-height: 90px;
+    padding: 25px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-top: 1px solid #ffffff12;
+    background: #060711;
+}
+
+.footer p {
+    color: #77778f;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* KEYFRAMES */
+
+@keyframes planet-float {
+    0%, 100% {
+        translate: 0 0;
+    }
+    50% {
+        translate: 0 -15px;
+    }
+}
+
+@keyframes stars-move {
+    from { background-position: 0 0; }
+    to { background-position: 300px 260px; }
+}
+
+@keyframes twinkle {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+@keyframes gradient-text {
+    to { background-position: 200% center; }
+}
+
+@keyframes satellite-pulse {
+    from { scale: 0.8; }
+    to { scale: 1.2; }
+}
+
+@keyframes scroll-line {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .hero-content {
+        margin-left: 6%;
+        width: 60%;
+    }
+
+    .planet-big {
+        right: -12%;
+        opacity: 0.75;
+    }
+
+    .orbit,
+    .orbit-two {
+        right: -25%;
+    }
+
+    .planet-cards {
+        gap: 12px;
+    }
+
+    .card-info {
+        left: 16px;
+        right: 16px;
+    }
+
+    .coordinates {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        height: 70px;
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .navigation {
+        gap: 12px;
+    }
+
+    .navigation a {
+        font-size: 8px;
+        letter-spacing: 0;
+    }
+
+    .connect {
+        display: none;
+    }
+
+    .hero {
+        height: 780px;
+        min-height: 0;
+        max-height: none;
+        align-items: flex-start;
+    }
+
+    .hero-content {
+        margin: 90px 22px 0;
+        width: auto;
+    }
+
+    .hero h1 {
+        font-size: clamp(44px, 11vw, 65px);
+        letter-spacing: -2px;
+    }
+
+    .hero-content > p {
+        font-size: 12px;
+        max-width: 300px;
+    }
+
+    .planet-big {
+        width: 260px;
+        right: -45px;
+        top: 390px;
+        opacity: 0.85;
+    }
+
+    .planet-small {
+        width: 40px;
+        height: 40px;
+        top: 390px;
+        right: 20%;
+    }
+
+    .planet-tiny {
+        bottom: 18%;
+        right: 30%;
+    }
+
+    .orbit {
+        width: 330px;
+        height: 120px;
+        top: 500px;
+        right: -80px;
+    }
+
+    .orbit-two {
+        width: 360px;
+        height: 150px;
+        top: 480px;
+        right: -100px;
+    }
+
+    .coordinates {
+        left: 20px;
+        right: 20px;
+        bottom: 24px;
+        gap: 12px;
+        font-size: 7px;
+    }
+
+    .scroll {
+        display: none;
+    }
+
+    .discover {
+        padding: 75px 20px;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-description {
+        margin-top: 16px;
+    }
+
+    .planet-cards {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .card {
+        min-height: 340px;
+    }
+
+    .footer {
+        flex-wrap: wrap;
+        padding: 25px 20px;
+    }
+
+    .footer p {
+        font-size: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
