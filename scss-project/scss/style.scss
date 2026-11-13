@@ -1,0 +1,17 @@
+$button: #4d1ce8;
+$text:  #4d1ce8;
+$text-white: white;
+$bg: #d0ccdd
+.body{
+    background: $bg;
+
+}
+.wrapper{
+    font-family: sans-serif;
+}
+.card{
+    background: $text-white;
+    padding: 20px;
+    min-width: 300px;
+    border-radius: 12px;
+}
