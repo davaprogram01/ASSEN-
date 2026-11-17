@@ -1,13 +1,13 @@
-let login = "admin";
-let password = "12345";
+const login = "admin";
+const password = "12345";
 
-let userLogin = prompt("Введите логин:");
-let userPassword = prompt("Введите пароль:");
+const userLogin = prompt("Введите логин:");
+const userPassword = prompt("Введите пароль:");
 
-if (userLogin === login && userPassword === password) {
-    alert("Добро пожаловать!");
-} else if (userLogin === login && userPassword !== password) {
+if (userLogin !== login) {
+    alert("Пользователь не найден");
+} else if (userPassword !== password) {
     alert("Неверный пароль");
 } else {
-    alert("Пользователь не найден");
+    alert("Добро пожаловать!");
 }
