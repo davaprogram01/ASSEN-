@@ -1,0 +1,403 @@
+
+:root {
+    --background: #0c0c12;
+    --sidebar: #14141d;
+    --card: #191923;
+    --border: #292938;
+    --purple: #925cff;
+    --white: #ffffff;
+    --gray: #89899b;
+}
+
+body {
+    background: var(--background);
+    color: var(--white);
+}
+
+.studio {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 245px;
+    background: var(--sidebar);
+    border-right: 1px solid var(--border);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 55px;
+}
+
+.logo span {
+    width: 42px;
+    height: 42px;
+    background: var(--purple);
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.logo h2 {
+    font-size: 21px;
+    letter-spacing: 2px;
+}
+
+.menu-title,
+.section-label {
+    color: var(--gray);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+.menu-title {
+    margin-bottom: 15px;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-link {
+    padding: 14px;
+    color: var(--gray);
+    border-radius: 9px;
+    transition: .3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: white;
+    background: #292238;
+}
+
+.nav-link.active {
+    border-left: 3px solid var(--purple);
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+}
+
+.sidebar-bottom p {
+    font-size: 12px;
+}
+
+.sidebar-bottom span {
+    color: var(--gray);
+    font-size: 11px;
+}
+
+/* MAIN */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 35px 40px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.topbar h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.topbar p {
+    color: var(--gray);
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.status {
+    color: #5cdb9c;
+    font-size: 11px;
+}
+
+button {
+    transition: .25s;
+}
+
+.export-btn,
+.transport button {
+    background: var(--purple);
+    border: none;
+    color: white;
+    border-radius: 8px;
+    padding: 12px 18px;
+}
+
+.export-btn:hover,
+.transport button:hover {
+    background: #7441d5;
+}
+
+/* PROJECT */
+
+.project-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.project-info h2 {
+    margin-top: 9px;
+    font-size: 21px;
+}
+
+.bpm-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bpm-control label {
+    color: var(--gray);
+    font-size: 12px;
+}
+
+.bpm-control input {
+    width: 75px;
+    background: var(--card);
+    color: white;
+    border: 1px solid var(--border);
+    padding: 10px;
+    border-radius: 7px;
+}
+
+/* PANELS */
+
+.panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.panel-header h2 {
+    font-size: 20px;
+    margin-top: 8px;
+}
+
+.transport {
+    display: flex;
+    gap: 10px;
+}
+
+.transport button:last-child {
+    background: #30303d;
+}
+
+/* SEQUENCER */
+
+.sequencer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sequence-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.sound-name {
+    width: 65px;
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--gray);
+}
+
+.steps {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(16, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.step {
+    height: 34px;
+    background: #292936;
+    border: 1px solid #373744;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .15s;
+}
+
+.step:hover {
+    border-color: var(--purple);
+}
+
+.step.active {
+    background: var(--purple);
+    border-color: var(--purple);
+    box-shadow: 0 0 12px #925cff55;
+}
+
+.step.playing {
+    outline: 2px solid white;
+}
+
+/* SOUND PADS */
+
+.sound-pads {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.sound-pad {
+    min-height: 95px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #23232f;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.sound-pad span {
+    color: var(--purple);
+    font-size: 12px;
+}
+
+.sound-pad:hover,
+.sound-pad:active {
+    background: #382b52;
+    border-color: var(--purple);
+    transform: translateY(-3px);
+}
+
+/* MIXER */
+
+.mixer-controls {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.mixer-channel {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mixer-channel label {
+    color: var(--gray);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.mixer-channel input {
+    width: 100%;
+    accent-color: var(--purple);
+    cursor: pointer;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        padding: 25px;
+    }
+
+    .steps {
+        gap: 3px;
+    }
+}
+
+@media (max-width: 650px) {
+    .studio {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .logo {
+        margin-bottom: 20px;
+    }
+
+    .navigation {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sidebar-bottom {
+        margin-top: 20px;
+    }
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .topbar-actions {
+        flex-wrap: wrap;
+    }
+
+    .main-content {
+        padding: 20px 12px;
+    }
+
+    .sound-pads {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mixer-controls {
+        grid-template-columns: 1fr;
+    }
+
+    .panel {
+        padding: 15px;
+        overflow-x: auto;
+    }
+
+    .steps {
+        min-width: 400px;
+    }
+}
