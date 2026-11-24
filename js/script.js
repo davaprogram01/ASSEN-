@@ -1,140 +1,223 @@
-// Задание 1. Вывод чисел
+// Задание 1. Список студентов
+
+let students = ["Давид", "Александр", "Нурбек", "Алина", "Максим"];
+
+// Выведите весь массив в консоль
+console.log(students);
+
+// Выведите первого и последнего студента
+console.log(students[0]);
+console.log(students[students.length - 1]);
+
+// Добавьте нового студента в конец массива
+students.push("Артур");
+console.log(students);
+
+// Удалите первого студента
+students.shift();
+console.log(students);
+
+// Выведите количество студентов
+console.log(students.length);
 
 
-for (let i = 1; i <= 50; i++) {
-    console.log(i);
-}
 
-console.log("Цикл завершён");
+// Задание 2. Список покупок
+
+let products = ["Молоко", "Сыр", "Яблоки", "Хлеб", "Мясо"];
+
+// Добавьте новый продукт в начало массива
+products.unshift("Картофель");
+
+// Удалите последний продукт
+products.pop();
+
+// Замените третий продукт на другой
+products[2] = "Бананы";
+
+// Проверьте, есть ли в массиве продукт «Хлеб»
+console.log(products.includes("Хлеб"));
+
+// Выведите обновлённый массив
+console.log(products);
+
+
+// Задание 4. Работа с числами
+
+const numbers = [10, 25, 30, 45, 50, 65, 80];
+
+// С помощью map() создайте массив, в котором каждое число увеличено в 2 раза
+const doubled = numbers.map(num => num * 2);
+console.log(doubled);
+
+// С помощью filter() получите числа больше 40
+const filtered = numbers.filter(num => num > 40);
+console.log(filtered);
+
+// С помощью find() найдите первое число больше 50
+const found = numbers.find(num => num > 50);
+console.log(found);
+
+// С помощью reduce() вычислите сумму всех чисел
+const sum = numbers.reduce((total, num) => total + num, 0);
+console.log(sum);
 
 
 
-// Задание 2. Чётные и нечётные числа
 
 
-for (let i = 1; i <= 20; i++) {
-    if (i % 2 === 0) {
-        console.log(i + " - Чётное");
-    } else {
-        console.log(i + " - Нечётное");
+
+// Задание 5. Список товаров
+
+const products = [
+    "Ноутбук",
+    "Мышка",
+    "Клавиатура",
+    "Монитор",
+    "Наушники",
+    "Принтер"
+];
+
+// С помощью slice() получите первые три товара
+const firstThree = products.slice(0, 3);
+console.log(firstThree);
+
+// С помощью splice() удалите «Монитор»
+products.splice(3, 1);
+
+// С помощью splice() добавьте «Веб-камеру» на место третьего элемента
+products.splice(2, 0, "Веб-камера");
+
+// Выведите обновлённый массив
+console.log(products);
+
+
+
+
+
+
+
+// Задание 6. Результаты тестирования
+
+const scores = [95, 45, 78, 60, 32, 88, 100, 55];
+
+// С помощью filter() получите результаты от 60 баллов и выше
+const passed = scores.filter(score => score >= 60);
+console.log(passed);
+
+// С помощью map() добавьте к каждому результату 5 баллов, но итог не должен превышать 100
+const updated = passed.map(score => Math.min(score + 5, 100));
+console.log(updated);
+
+// С помощью find() найдите первый результат ниже 50
+const lowScore = scores.find(score => score < 50);
+console.log(lowScore);
+
+// С помощью reduce() вычислите средний балл всех студентов
+const average = scores.reduce((sum, score) => sum + score, 0) / scores.length;
+console.log(average);
+
+
+
+
+
+
+// Задание 7. Информация о студенте
+
+const student = {
+    name: "Давид",
+    age: 18,
+    group: "SIT-K-26",
+    profession: "Программист"
+};
+
+// Вывести имя и группу студента
+console.log(student.name);
+console.log(student.group);
+
+// Изменить возраст
+student.age = 19;
+
+// Добавить свойство email
+student.email = "david@gmail.com";
+
+// Удалить свойство profession
+delete student.profession;
+
+// Вывести обновлённый объект
+console.log(student);
+
+
+
+
+
+
+// Задание 8. Информация об автомобиле
+
+const car = {
+    brand: "BMW",
+    model: "M5",
+    year: 2022,
+    price: 50000
+};
+
+// Вывести марку и модель автомобиля
+console.log(car.brand);
+console.log(car.model);
+
+// Изменить стоимость автомобиля
+car.price = 55000;
+
+// Добавить свойство color
+car.color = "Черный";
+
+// Создать метод getInfo(), который выводит информацию об автомобиле
+car.getInfo = function() {
+    console.log("Марка: " + this.brand);
+    console.log("Модель: " + this.model);
+    console.log("Год выпуска: " + this.year);
+    console.log("Стоимость: " + this.price);
+    console.log("Цвет: " + this.color);
+};
+
+// Вызвать метод getInfo()
+car.getInfo();
+
+
+
+
+
+// Задание 9. Электронный журнал
+
+const student = {
+    name: "Алексей",
+    group: "ВР-1-26",
+    grades: [5, 4, 5, 3, 4],
+
+    // Добавить новую оценку в массив grades
+    getAverage: function() {
+        return this.grades.reduce((sum, grade) => sum + grade, 0) / this.grades.length;
+    },
+
+    // Создать метод getStatus()
+    getStatus: function() {
+        if (this.getAverage() >= 3) {
+            return "Успевает";
+        } else {
+            return "Не успевает";
+        }
     }
-}
+};
 
+// Вывести имя и группу студента
+console.log(student.name);
+console.log(student.group);
 
+// Добавить новую оценку в массив grades
+student.grades.push(5);
 
-
-// Задание 3. Сумма чисел
-
-
-let sum = 0;
-let i = 1;
-
-while (i <= 100) {
-    sum += i;
-    i++;
-}
-
-console.log("Сумма чисел от 1 до 100: " + sum);
-
-
-
-
-// Задание 4. Таблица умножения
-
-
-let number = 7;
-
-for (let i = 1; i <= 10; i++) {
-    console.log(number + " x " + i + " = " + (number * i));
-}
-
-
-
-// Задание 5. Обратный отсчёт
-
-
-let count = 10;
-
-do {
-    console.log(count);
-    count--;
-} while (count >= 1);
-
-console.log("Старт!");
-
-
-
-// Задание 6. Пропуск чисел
-
-for (let i = 1; i <= 30; i++) {
-    if (i % 5 === 0) {
-        continue;
-    }
-
-    console.log(i);
-}
-
-
-
-// Задание 7. Остановка цикла
-
-for (let i = 1; i <= 100; i++) {
-    if (i === 35) {
-        break;
-    }
-
-    console.log(i);
-}
-
-
-
-// Задание 8. Учёт посещаемости студентов
-
-let totalStudents = 10;
-let present = 0;
-let absent = 0;
-
-for (let i = 1; i <= totalStudents; i++) {
-    if (i === 3 || i === 6 || i === 9) {
-        console.log("Студент №" + i + " - отсутствует");
-        absent++;
-    } else {
-        console.log("Студент №" + i + " - присутствует");
-        present++;
-    }
-}
-
-console.log("Всего студентов: " + totalStudents);
-console.log("Присутствуют: " + present);
-console.log("Отсутствуют: " + absent);
-
-
-
-// Задание 9. Прямоугольник из символов
-
-for (let i = 1; i <= 4; i++) {
-    let line = "";
-
-    for (let j = 1; j <= 6; j++) {
-        line += "*";
-    }
-
-    console.log(line);
-}
-
-
-
-// Задание 10. Система начисления баллов
-
-let points = 0;
-let completedTasks = 0;
-
-while (points < 100) {
-    points += 10;
-    completedTasks++;
-
-    console.log("Задание " + completedTasks + " - " + points + " баллов");
-}
-
-console.log("Всего выполнено заданий: " + completedTasks);
-console.log("Итоговый балл: " + points);
+// Вывести всю информацию о студенте и результат работы методов
+console.log(student);
+console.log("Оценки:", student.grades);
+console.log("Средний балл:", student.getAverage());
+console.log("Статус:", student.getStatus());
