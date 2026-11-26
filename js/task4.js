@@ -1,19 +1,14 @@
-// Задание 4. Работа с числами
+const calculateDiscount = function(price, discount) {
+    if (discount < 0 || discount > 100) {
+        return "Некорректная скидка";
+    }
 
-const numbers = [10, 25, 30, 45, 50, 65, 80];
+    let result = price - (price * discount / 100);
 
-// С помощью map() создайте массив, в котором каждое число увеличено в 2 раза
-const doubled = numbers.map(num => num * 2);
-console.log(doubled);
+    return result;
+};
 
-// С помощью filter() получите числа больше 40
-const filtered = numbers.filter(num => num > 40);
-console.log(filtered);
-
-// С помощью find() найдите первое число больше 50
-const found = numbers.find(num => num > 50);
-console.log(found);
-
-// С помощью reduce() вычислите сумму всех чисел
-const sum = numbers.reduce((total, num) => total + num, 0);
-console.log(sum);
+console.log(calculateDiscount(1000, 10));
+console.log(calculateDiscount(5000, 20));
+console.log(calculateDiscount(2000, 50));
+console.log(calculateDiscount(1000, 110));

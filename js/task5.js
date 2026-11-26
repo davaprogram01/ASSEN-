@@ -1,23 +1,33 @@
-// Задание 5. Список товаров
+function getAverage(grades) {
+    let sum = 0;
 
-const products = [
-    "Ноутбук",
-    "Мышка",
-    "Клавиатура",
-    "Монитор",
-    "Наушники",
-    "Принтер"
-];
+    for (let i = 0; i < grades.length; i++) {
+        sum += grades[i];
+    }
 
-// С помощью slice() получите первые три товара
-const firstThree = products.slice(0, 3);
-console.log(firstThree);
+    return sum / grades.length;
+}
 
-// С помощью splice() удалите «Монитор»
-products.splice(3, 1);
+function getStatus(average) {
+    if (average >= 4.5) {
+        return "Отличник";
+    }
 
-// С помощью splice() добавьте «Веб-камеру» на место третьего элемента
-products.splice(2, 0, "Веб-камера");
+    if (average >= 3.5) {
+        return "Хорошист";
+    }
 
-// Выведите обновлённый массив
-console.log(products);
+    if (average >= 3) {
+        return "Удовлетворительно";
+    }
+
+    return "Не успевает";
+}
+
+const grades = [5, 4, 5, 3, 4];
+
+const average = getAverage(grades);
+const status = getStatus(average);
+
+console.log("Средняя оценка:", average);
+console.log("Статус:", status);ы

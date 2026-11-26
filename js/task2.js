@@ -1,18 +1,25 @@
-// Задание 2. Список покупок
+const sum = function(a, b) {
+    return a + b;
+};
 
-let products = ["Молоко", "Сыр", "Яблоки", "Хлеб", "Мясо"];
+const subtract = function(a, b) {
+    return a - b;
+};
 
-// Добавьте новый продукт в начало массива
-products.unshift("Картофель");
+const multiply = function(a, b) {
+    return a * b;
+};
 
-// Удалите последний продукт
-products.pop();
+const divide = function(a, b) {
+    if (b === 0) {
+        return "Деление на ноль невозможно";
+    }
 
-// Замените третий продукт на другой
-products[2] = "Бананы";
+    return a / b;
+};
 
-// Проверьте, есть ли в массиве продукт «Хлеб»
-console.log(products.includes("Хлеб"));
-
-// Выведите обновлённый массив
-console.log(products);
+console.log(sum(10, 5));
+console.log(subtract(10, 5));
+console.log(multiply(10, 5));
+console.log(divide(10, 5));
+console.log(divide(10, 0));

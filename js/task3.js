@@ -1,21 +1,16 @@
-// Задание 3. Оценки студентов
+function checkAge(age) {
+    if (age < 0) {
+        return "Некорректный возраст";
+    }
 
-const grades = [5, 4, 3, 5, 4, 2, 5];
+    if (age < 18) {
+        return "Доступ запрещён";
+    }
 
-// Выведите количество оценок
-console.log(grades.length);
-
-// Найдите первую и последнюю оценку
-console.log(grades[0]);
-console.log(grades[grades.length - 1]);
-
-// Добавьте новую оценку 5
-grades.push(5);
-
-// Удалите последнюю оценку
-grades.pop();
-
-// С помощью цикла выведите все оценки по отдельности
-for (let i = 0; i < grades.length; i++) {
-    console.log(grades[i]);
+    return "Доступ разрешён";
 }
+
+console.log(checkAge(15));
+console.log(checkAge(18));
+console.log(checkAge(25));
+console.log(checkAge(-5));
